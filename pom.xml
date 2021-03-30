@@ -20,6 +20,7 @@
             <artifactId>junit-jupiter</artifactId>
             <version>5.7.1</version>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -36,15 +37,6 @@
                             </mainClass>
                         </manifest>
                     </archive>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>15</source>
-                    <target>15</target>
-                    <compilerArgs>--enable-preview</compilerArgs>
                 </configuration>
             </plugin>
         </plugins>
