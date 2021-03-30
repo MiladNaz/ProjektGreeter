@@ -22,5 +22,10 @@ pipeline{
                 sh 'mvn package'
             }
         }
+        stage('Run JAR file'){
+            steps{
+                sh 'java -jar ./target/ProjektGreeter-1.0-SNAPSHOT.jar'
+            }
+        }
     }
 }
