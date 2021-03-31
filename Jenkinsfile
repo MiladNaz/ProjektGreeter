@@ -29,19 +29,19 @@ pipeline{
         }
         stage('Run JAR file'){
             steps{
-                sh 'java -jar ./target/ProjektGreeter-1.0-SNAPSHOT.jar'
+                sh 'java -jar ./target/projektgreeter-1.0.jar'
 
             }
         }
         stage('Create docker image') {
             steps {
-                sh 'docker build -t miladnazarii/ProjektGreeter:1.0-SNAPSHOT .'
+                sh 'docker build -t miladnazarii/projektgreeter:1.0 .'
             }
         }
         stage('Push image to docker hub'){
             steps{
                 withDockerRegistry([credentialsId: "DockerLogin", url: ""]){
-                    sh 'docker push miladnazarii/ProjektGreeter:1.0-SNAPSHOT'
+                    sh 'docker push miladnazarii/projektgreeter:1.0'
                 }
             }
         }
