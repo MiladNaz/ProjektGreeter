@@ -21,10 +21,16 @@ pipeline{
             steps{
                 sh 'mvn package'
             }
+            post {
+                success {
+                    archiveArtifacts 'target/*.jar'
+                }
+            }
         }
         stage('Run JAR file'){
             steps{
                 sh 'java -jar ./target/ProjektGreeter-1.0-SNAPSHOT.jar'
+
             }
         }
     }
