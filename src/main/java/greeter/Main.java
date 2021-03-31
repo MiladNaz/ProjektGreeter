@@ -7,8 +7,9 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
+        Greeter greeter = new Greeter();
 
-        System.out.println(Greeter.greet("Milad"));
+        System.out.println(greeter.greet("Milad"));
 
     }
 }

@@ -2,7 +2,7 @@ package greeter;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import com.google.common.base.CharMatcher;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,6 +21,7 @@ public class GreeterTest {
     }
 
     @Test
+    @DisplayName("Trimming name")
     void trimmingName() {
 
         var actual = greeter.greet("  Edvin Jonas  ");

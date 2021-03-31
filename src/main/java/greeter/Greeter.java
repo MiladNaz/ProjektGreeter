@@ -1,11 +1,14 @@
 package greeter;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class Greeter {
 
-    public static String greet(String name) {
+    public  String greet(String name) {
 
 
-        return "Hello " + name.trim();
+
+        return "Hello " + StringUtils.trim(name);
 
 
     }
