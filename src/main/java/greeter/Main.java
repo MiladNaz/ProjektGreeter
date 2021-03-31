@@ -7,7 +7,7 @@ public class Main {
 
         Greeter greeter = new Greeter();
 
-        System.out.println(greeter.greet("Milad", LocalTime.now()));
+        System.out.println(greeter.greet("   Milad   ", LocalTime.now()));
 
     }
 }

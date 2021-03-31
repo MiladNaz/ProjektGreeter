@@ -1,12 +1,14 @@
 package greeter;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.time.LocalTime;
 
 public class Greeter {
 
     public  String greet(String name, LocalTime now) {
 
-        name = name.trim();
+        name = StringUtils.trim(name);
         name = name.toLowerCase();
         String greeting;
 
