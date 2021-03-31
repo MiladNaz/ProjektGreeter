@@ -23,13 +23,13 @@ pipeline{
             }
             post {
                 success {
-                    archiveArtifacts 'target/*.jar'
+                    archiveArtifacts 'target/ProjektGreeter-1.0-SNAPSHOT-jar-with-dependencies.jar'
                 }
             }
         }
         stage('Run JAR file'){
             steps{
-                sh 'java -jar ./target/ProjektGreeter-1.0-SNAPSHOT.jar'
+                sh 'java -jar ./target/ProjektGreeter-1.0-SNAPSHOT-jar-with-dependencies.jar'
 
             }
         }
