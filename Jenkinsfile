@@ -33,5 +33,17 @@ pipeline{
 
             }
         }
+        stage('Create docker image') {
+            steps {
+                sh 'docker build -t miladnazarii/ProjektGreeter:1.0-SNAPSHOT .'
+            }
+        }
+        stage('Push image to docker hub'){
+            steps{
+                withDockerRegistry([credentialsId: "DockerLogin", url: ""]){
+                    sh 'docker push miladnazarii/ProjektGreeter:1.0-SNAPSHOT'
+                }
+            }
+        }
     }
 }
