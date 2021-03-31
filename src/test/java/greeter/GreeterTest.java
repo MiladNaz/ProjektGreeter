@@ -3,6 +3,7 @@ package greeter;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,20 +16,27 @@ public class GreeterTest {
     void greetingAPerson() {
 
 
-        var actual = greeter.greet("Johan");
+        var actual = greeter.greet("Johan", LocalTime.parse("12:01"));
 
-        assertEquals("Hello Johan", actual);
+        assertEquals("Good day Johan", actual);
     }
 
     @Test
     @DisplayName("Trimming name")
     void trimmingName() {
 
-        var actual = greeter.greet("  Edvin Jonas  ");
+        var actual = greeter.greet("   Jonas  ", LocalTime.parse("12:01"));
 
-        assertEquals("Hello Edvin Jonas", actual);
+        assertEquals("Good day Jonas", actual);
 
+    }
 
+    @Test
+    @DisplayName("First letter of name to uppercase")
+    void firstLetterOfNameToUpperCase(){
+        var actual = greeter.greet("sir", LocalTime.parse("12:01"));
+
+        assertEquals("Good day Sir", actual);
     }
 
 
