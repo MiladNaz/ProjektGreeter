@@ -17,14 +17,13 @@ public class GreeterTest {
     @DisplayName("Greeting a person")
     void greetingAPerson() {
 
-
         var actual = greeter.greet("Johan", LocalTime.parse("12:01"));
 
         assertEquals("Good day Johan", actual);
     }
 
     @Test
-    @DisplayName("Trimming name")
+    @DisplayName("Trimming whitespaces in name")
     void trimmingName() {
 
         var actual = greeter.greet("   Jonas  ", LocalTime.parse("12:01"));
@@ -35,18 +34,19 @@ public class GreeterTest {
 
     @Test
     @DisplayName("First letter of name to uppercase")
-    void firstLetterOfNameToUpperCase(){
+    void firstLetterOfNameToUpperCase() {
+
         var actual = greeter.greet("sir", LocalTime.parse("12:01"));
 
         assertEquals("Good day Sir", actual);
     }
 
     @ParameterizedTest
-    @CsvSource({"12:00,Milad,Good day Milad","18:00,Johan,Good evening Johan","22:00,Edvin,Good night Edvin","06:00,Jonas,Good morning Jonas"})
+    @CsvSource({"12:00,Milad,Good day Milad", "18:00,Johan,Good evening Johan", "22:00,Edvin,Good night Edvin", "06:00,Jonas,Good morning Jonas"})
     @DisplayName("Different greetings at different time of day")
-    void time(String localTime, String name, String expected){
+    void differentGreetings(String localTime, String name, String expected) {
 
-        var actual = greeter.greet(name,LocalTime.parse(localTime));
+        var actual = greeter.greet(name, LocalTime.parse(localTime));
 
         assertEquals(expected, actual);
 

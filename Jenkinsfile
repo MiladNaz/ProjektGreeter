@@ -12,7 +12,7 @@ pipeline{
                 sh 'mvn clean compile'
             }
         }
-        stage('Test'){
+        stage('Unit Tests'){
             steps{
                 sh 'mvn test'
             }
@@ -23,13 +23,13 @@ pipeline{
             }
             post {
                 success {
-                    archiveArtifacts 'target/ProjektGreeter-1.0-SNAPSHOT-jar-with-dependencies.jar'
+                    archiveArtifacts 'target/*jar-with-dependencies.jar'
                 }
             }
         }
         stage('Run JAR file'){
             steps{
-                sh 'java -jar ./target/ProjektGreeter-1.0-SNAPSHOT-jar-with-dependencies.jar'
+                sh 'java -jar ./target/*jar-with-dependencies.jar'
             }
         }
         stage('Create docker image') {
