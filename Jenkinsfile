@@ -31,11 +31,6 @@ pipeline{
             steps{
                 sh 'java -jar ./target/ProjektGreeter-1.0-SNAPSHOT-jar-with-dependencies.jar'
             }
-            post {
-                success {
-                    sh 'It worked'
-                }
-            }
         }
         stage('Create docker image') {
             steps {
