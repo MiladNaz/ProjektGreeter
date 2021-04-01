@@ -23,6 +23,7 @@ pipeline{
             }
             post {
                 success {
+                    sh 'rm ./target/ProjektGreeter-1.1-SNAPSHOT.jar'
                     archiveArtifacts 'target/*jar-with-dependencies.jar'
                 }
             }
