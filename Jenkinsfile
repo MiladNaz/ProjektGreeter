@@ -34,13 +34,13 @@ pipeline{
         }
         stage('Create docker image') {
             steps {
-                sh 'docker build -t miladnazarii/projektgreeter:1.0 .'
+                sh 'docker build -t miladnazarii/projektgreeter:1.1 .'
             }
         }
         stage('Push image to docker hub'){
             steps{
                 withDockerRegistry([credentialsId: "DockerLogin", url: ""]){
-                    sh 'docker push miladnazarii/projektgreeter:1.0'
+                    sh 'docker push miladnazarii/projektgreeter:1.1'
                 }
             }
         }
